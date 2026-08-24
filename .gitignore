@@ -31,3 +31,22 @@ build/
 
 ### VS Code ###
 .vscode/
+# Eclipse
+.metadata/
+.recommenders/
+.settings/
+.project
+.classpath
+
+# SonarLint
+.sonarlint/
+
+# Maven
+target/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
