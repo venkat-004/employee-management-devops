@@ -80,6 +80,17 @@ pipeline {
         	'''
     	    }
 	}
+	stage('Deploy to Kubernetes') {
+    	    steps {
+        	bat '''
+        	kubectl apply -f k8s/deployment.yaml
+        	kubectl apply -f k8s/service.yaml
+        	kubectl rollout status deployment/employee-app
+        	kubectl get pods
+        	kubectl get services
+        	'''
+            }
+        }
 	
     }
 

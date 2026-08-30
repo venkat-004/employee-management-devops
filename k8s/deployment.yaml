@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: employee-app
+  template:
+    metadata:
+      labels:
+        app: employee-app
+    spec:
+      containers:
+        - name: employee-app
+          image: venkat0707/employee-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
