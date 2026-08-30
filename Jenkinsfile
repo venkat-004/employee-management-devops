@@ -62,6 +62,25 @@ pipeline {
                 bat 'docker push %DOCKER_IMAGE%'
             }
         }
+	
+	stage('Terraform Init') {
+    	    steps {
+        	bat '''
+        	cd terraform
+        	terraform init
+        	'''
+    	    }
+	}
+
+	stage('Terraform Apply') {
+    	   steps {
+        	bat '''
+        	cd terraform
+        	terraform apply -auto-approve
+        	'''
+    	    }
+	}
+	
     }
 
     post {
